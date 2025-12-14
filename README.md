@@ -1,5 +1,5 @@
-# Airplan Mode 飞行计划 公共资源服务
-public-service.airplanmode.com
+# Airplan Mode 飞行计划 脚手架服务
+XX.airplanmode.com
 ## 开发规范
 
 ### 项目结构规范
@@ -109,3 +109,10 @@ project /
 - Swagger 配置：`src/config/swagger.js`
 - 日志配置：`src/config/logger.js`
 - 入口挂载：`src/server.js`
+
+### 异步编程规范
+- 所有异步操作都要使用 `async/await` 或 `Promise` 处理，避免回调地狱
+- 控制器中调用服务时，要确保服务返回 `Promise`，并在控制器中 `await` 其结果
+- 服务中调用外部 API 或数据库操作时，要确保返回 `Promise`，并在服务中 `await` 其结果
+- 路由中处理异步操作时，要确保捕获异常并返回结构化错误响应
+- 必须使用try...catch捕获异步操作中的异常，避免未处理异常导致服务崩溃
