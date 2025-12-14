@@ -14,18 +14,4 @@ const router = express.Router()
  *         description: OK
  */
 router.get('/', root.health)
-
-/**
- * @openapi
- * /env:
- *   get:
- *     summary: Env
- *     tags:
- *       - system
- *     responses:
- *       '200':
- *         description: Environment values
- */
-router.get('/env', root.env)
-
 module.exports = router
